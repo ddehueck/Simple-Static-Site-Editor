@@ -1,0 +1,40 @@
+body {
+	font-family: monospace;
+	margin: 25px;
+	padding: 0;
+}
+
+h1, h2 {
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
+p , li{
+	font-size: 14px;
+	line-height: 25px;
+}
+
+main {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    width: 100%;
+    border: solid 1px #000;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+form textarea {
+    border: solid 1px #000;
+    height: 100px;
+    padding: 10px 10px;
+    font-size: 12px;
+}
