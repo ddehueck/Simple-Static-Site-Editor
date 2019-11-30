@@ -7,7 +7,7 @@ Flask application to update a static site's data via JS files. The editor writes
 **Why do you write to a JS file instead of a JSON file?** To avoid cross-origin resource sharing. If you could load a website and have it try to access any file on your system then that would be a serious security breech, so most browsers do not allow this functionality. Hence, reading a JSON file is much more difficult than reading a JS file as we do not run into this cross-origins problem.
 
 ### Demo
-![Demo GIF](https://i.imgur.com/8ZO93Ti.mp4)
+![Demo GIF](https://i.imgur.com/8ZO93Ti.gif)
 
 ### How to get running!
 
