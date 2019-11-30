@@ -6,6 +6,9 @@ Flask application to update a static site's data via JS files. The editor writes
 
 **Why do you write to a JS file instead of a JSON file?** To avoid cross-origin resource sharing. If you could load a website and have it try to access any file on your system then that would be a serious security breech, so most browsers do not allow this functionality. Hence, reading a JSON file is much more difficult than reading a JS file as we do not run into this cross-origins problem.
 
+### Demo
+![Demo GIF](blob:https://imgur.com/89cf7775-1393-4757-967f-0d9b010a7f7f)
+
 ### How to get running!
 
 `$ python -m flask run`
@@ -28,10 +31,3 @@ Feel free to create an issue if you want to adapt any functionality or learn mor
   - templates
   - \_\_init\_\_.py
   - utils.py
-
-
-## Screenshots
-
-<img src="https://i.imgur.com/cPFp5Cv.png" alt="Main page with create new form and past entries" width="500px"/>
-
-<img src="https://i.imgur.com/SwWz9Jc.png" alt="Edit form" width="500px"/>
