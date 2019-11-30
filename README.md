@@ -16,7 +16,7 @@ Feel free to create an issue if you want to adapt any functionality or learn mor
 
 - Save data to JSON (in a JS file) to be easily read into html documents with vanilla JS
 - Push file changes to github (will require your own user token)
-- Edit JSON objects
+- Add/Edit/Delete JSON objects
 - Extend to your own data needs - defined new schemas
 
 ## Editor File Structure
