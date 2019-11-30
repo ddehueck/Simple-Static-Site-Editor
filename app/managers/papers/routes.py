@@ -2,11 +2,14 @@ import time
 import uuid
 from flask import Blueprint, render_template, request, redirect, url_for
 from .forms import PaperForm
-from ..utils import read_js, save_data, get_object_by_id
+from ...utils import read_js, save_data, get_object_by_id
+from ...github_utils import update_file
 
 
 papers_bp = Blueprint('papers', __name__, url_prefix='/papers')
 data_path = 'app/data/papers.js'
+key = 'papers'
+github_path = 'https://api.github.com/repos/ddehueck/ddehueck.github.io/contents/data/papers.js'
 
 
 @papers_bp.route('/', methods=['GET', 'POST'])
@@ -28,8 +31,8 @@ def index():
             "id": str(uuid.uuid4()),
         })
 
-        save_data(saved_paper_data, data_path)
-        return redirect(url_for('papers.index'))
+        save_data(saved_paper_data, data_path, key)
+        return redirect(url_for('.index'))
 
     if form.errors:
         print(form.errors)
@@ -39,8 +42,20 @@ def index():
         'papers/index.html',
         data=sorted(saved_paper_data, key=lambda k: k['created_at'], reverse=True),
         form=form,
-        title='Papers'
+        title='Papers Manager'
     )
+
+
+@papers_bp.route('/update-github', methods=['GET'])
+def update_github():
+    """
+     GET: Pushes saved data to github using GitHub API
+     """
+    response = update_file(data_path, github_path)
+    print(response)
+    print(response.content)
+
+    return redirect(url_for('.index'))
 
 
 @papers_bp.route('/edit/<id>', methods=['GET', 'POST'])
@@ -68,8 +83,8 @@ def edit(id):
             "id": paper_to_edit['id'],
         })
 
-        save_data(saved_paper_data, data_path)
-        return redirect(url_for('papers.index'))
+        save_data(saved_paper_data, data_path, key)
+        return redirect(url_for('.index'))
 
     if form.errors:
         print(form.errors)
@@ -98,6 +113,6 @@ def delete(id):
 
     # Remove and save!
     saved_paper_data.remove(paper_to_del)
-    save_data(saved_paper_data, data_path)
+    save_data(saved_paper_data, data_path, key)
 
-    return redirect(url_for('papers.index'))
+    return redirect(url_for('.index'))

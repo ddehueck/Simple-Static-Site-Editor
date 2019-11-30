@@ -14,9 +14,16 @@ p , li{
 	line-height: 25px;
 }
 
+.container {
+    display: flex;
+}
+
+aside {
+    width: 250px;
+}
+
 main {
-	max-width: 800px;
-	margin: 0 auto;
+    width: 700px;
 }
 
 form {

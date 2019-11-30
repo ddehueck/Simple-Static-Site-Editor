@@ -2,10 +2,6 @@ import ujson
 import time
 
 
-# JSON text should be available after this substring in a JS file
-begin_json = 'data = '
-
-
 def read_js(filename):
     """
     Reads a specific type of JS file to JSON
@@ -16,11 +12,12 @@ def read_js(filename):
     """
     with open(filename, 'r') as f:
         js_text = f.readlines()[0]  # JS should all be on a single line
-        js_text = js_text.replace(begin_json, '')
+        equal_sign_index = js_text.index('=')  # JSON text should be available after this index in a JS file
+        js_text = js_text[equal_sign_index + 1:]  # + 1 for space
     return ujson.loads(js_text)
 
 
-def save_data(data, filename):
+def save_data(data, filename, key):
     """
     :param data: A list of dicts - should contain what's already in file
     :param filename: Path of where to save file
@@ -32,7 +29,7 @@ def save_data(data, filename):
         })
 
     with open(filename, 'w') as f:
-        f.write(begin_json + json_str)
+        f.write(f'{key} = ' + json_str)
 
 
 def get_object_by_id(list_of_dicts, _id):

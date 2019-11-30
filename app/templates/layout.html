@@ -9,6 +9,20 @@
         {% block head %}{% endblock %}
     </head>
     <body>
-    {% block content %}{% endblock %}
+    <div class="container">
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('papers.index') }}">Papers Manager</a></li>
+                    <li><a href="{{ url_for('doing_now.index') }}">Doing Now Manager</a></li>
+                    <li><a href="{{ url_for('summary.index') }}">Summary Manager</a></li>
+                    <li><a href="{{ url_for('description.index') }}">Description Manager</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
     </body>
 </html>
