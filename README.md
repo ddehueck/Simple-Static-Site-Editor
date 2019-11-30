@@ -29,6 +29,6 @@ Flask application to update a static site's data via JS files. The editor writes
 
 ## Screenshots
 
-<img src="https://i.imgur.com/fAppl7v.png" alt="Main page with create new form and past entries" width="500px"/>
+<img src="doingNow" alt="Main page with create new form and past entries" width="500px"/>
 
-<img src="https://i.imgur.com/SwWz9Jc.png" alt="Main page with create new form and past entries" width="500px"/>
+<img src="https://i.imgur.com/SwWz9Jc.png" alt="Edit form" width="500px"/>
