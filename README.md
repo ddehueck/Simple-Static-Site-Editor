@@ -10,6 +10,8 @@ Flask application to update a static site's data via JS files. The editor writes
 
 `$ python -m flask run`
 
+Feel free to create an issue if you want to adapt any functionality or learn more!
+
 ## Editor File Structure
 
 - app
